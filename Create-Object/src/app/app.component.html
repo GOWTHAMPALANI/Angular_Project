@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>
+      <ul *ngFor = "let data of httpdata">
+          <li>Name : {{data.name}} Address: {{data.address.city}}</li>
+       </ul>
+    Welcome to {{ title}}-{{title1}}!
+<button (click)="first1()">test</button>
+  </h1>
+  <span>UPPERCASEPIPE:<b>{{title | uppercase}}</b></span><br>
+  <span>LowercasePipe:<b>{{title | lowercase}}</b></span>
+  <div class="navbar">
+    <a href="#" class="active">Home </a><br>
+    <a routerLink="red">FirstComponent</a>
+    <a routerLink="form">FormComponent</a>
+  </div>
+  <p appChangeText>Using Directive Change the text.</p>
+  <select (change)="changemonths($event)" name="month">
+    <option *ngFor="let i of months">{{i}}</option>
+  </select>
+
+  <span *ngIf="isavailable; then condition1 else condition2">
+    Condition is valid.
+  </span>
+  <ng-template #condition1>Condition is valid</ng-template>
+  <ng-template #condition2>Condition is invalid</ng-template>
+
+  <button (click)="myclickfunction()">Button</button>
+  <b>SlicePipe:{{months | slice:1:12}}</b><br>
+  <b>NumberPipe:{{00.54565 |  number: '2.2-4'}}</b><br>
+  <b>PercentagePipe:{{25 |  sqrt}}</b>
+
+  <router-outlet></router-outlet>
+</div>

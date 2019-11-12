@@ -1,0 +1,72 @@
+<p>Datepipe:ng{{todaydate | date:'d/M/y'}}
+</p>
+<b>JSonPipe:{{ jsonval | json }}</b>
+
+
+<ul *ngFor="let car of Carlist; let i = index;" >
+    <li>Index:{{i+1}}</li>
+    <li>Price:{{car.price}}</li >
+    <li>CarName:{{car.car_name}}</li>
+    <li>Quantity:{{car.quantiy}}</li>
+    <li *ngIf="car.description">
+        Description: {{ car.description }}
+    </li>
+      <li *ngIf="car.quantiy >= 15">
+          CarQuantity above 15: <b>{{ car.quantiy }}</b>
+      </li>
+  </ul>
+
+
+  <button class="btn btn-primary" (click)="totalPrice()">Price</button>
+  <button class="btn btn-success" (click)="totalQuantity()">Quantity</button>
+  <button class="btn btn-danger" (click)="length()">array</button>
+  <button class="btn btn-info" (click)="maximum()">maximum Quantity</button>
+  <button class="btn btn-dark" (click)="minimum()">minimum Quantity</button>
+  <button class="btn btn-success" (click)="first()">Click</button>
+
+  <div class="container">
+    <div id="accordion" class="accordion">
+        <div class="card mb-0">
+            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                <a class="card-title">
+                 <b>   {{todaydate}}-{{componentproperty}}</b>
+                </a>
+            </div>
+            <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
+              <div class="table-responsive" >
+                <table class="table table-bordered" *ngIf="users">
+                        <tr >
+                            <th>Index</th>
+                          <th>serial No</th>
+                          <th>FirstName</th>
+                          <th>LastName</th>
+                          <th>Email-id</th>
+                          <th>Image</th>
+                        </tr>
+                        <tr *ngFor = "let user of users.data let i = index">
+                            <td>{{i}}</td>
+                          <td>{{user.id}}</td>
+                          <td>{{user.first_name}}</td>
+                          <td>{{user.last_name}}</td>
+                          <td>{{user.email}}</td>
+                          <td> <img [src] ="user.avatar"></td>
+                        </tr>
+                       
+                      </table>
+        </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+  <div class="container">
+    <form (ngSubmit)="onClickSubmit(data)">
+      <label>username </label>
+      <input type="email" placeholder="enter Your Name"/>
+      <label>Password </label>
+
+      <input type="password" placeholder="enter Your password "/>
+      <input type="submit" value="submit"/>
+    </form>
+  </div>
